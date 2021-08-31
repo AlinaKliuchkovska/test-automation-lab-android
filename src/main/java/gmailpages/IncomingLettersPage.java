@@ -19,7 +19,7 @@ public class IncomingLettersPage extends BasePage {
     private WebElement manageAccountButton;
 
     public IncomingLettersPage clickOnLastMessage(String subject) {
-        driver.findElement(By.xpath(String.format("//android.view.View[contains(@content-desc,\"%s\")]", subject))).click();
+        driver.findElement(By.xpath(String.format("//*[contains(@content-desc,\"%s\")]", subject))).click();
         return this;
     }
 

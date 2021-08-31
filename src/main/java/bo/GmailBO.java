@@ -20,7 +20,6 @@ public class GmailBO {
     private final RemoveAccountPopup removeAccountPopup = new RemoveAccountPopup();
     private static final String EMAIL = "test.kliuchkovska@gmail.com";
     private static final String PASSWORD = "A1234567890@!";
-    AccountPageAsserts asserts = new AccountPageAsserts();
 
     public GmailBO skipStartPage() {
         startPage.clickOnGotItButton();

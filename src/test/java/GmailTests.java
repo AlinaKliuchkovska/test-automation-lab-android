@@ -6,9 +6,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class GmailTests extends BaseTest {
-    GmailBO gmailBO = new GmailBO();
-    AccountPageAsserts accountPageAsserts = new AccountPageAsserts();
-    LetterPageAsserts letterPageAsserts = new LetterPageAsserts();
+    private final GmailBO gmailBO = new GmailBO();
+    private final AccountPageAsserts accountPageAsserts = new AccountPageAsserts();
+    private final LetterPageAsserts letterPageAsserts = new LetterPageAsserts();
     private static final String EXPECTED_NAME = "Test Kliuchkovska";
 
     @BeforeMethod
