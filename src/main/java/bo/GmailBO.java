@@ -1,6 +1,5 @@
 package bo;
 
-import asserts.AccountPageAsserts;
 import gmailpages.*;
 import utils.RandomGenerators;
 
@@ -18,32 +17,40 @@ public class GmailBO {
     private final UsersAccountPage usersAccountPage = new UsersAccountPage();
     private final RemoveAccountPage removeAccountPage = new RemoveAccountPage();
     private final RemoveAccountPopup removeAccountPopup = new RemoveAccountPopup();
-    private static final String EMAIL = "test.kliuchkovska@gmail.com";
-    private static final String PASSWORD = "A1234567890@!";
 
     public GmailBO skipStartPage() {
         startPage.clickOnGotItButton();
         return this;
     }
 
-    public GmailBO addNewAccount() {
+    public GmailBO logIn(String email, String password){
         accountsPage.clickOnAddEmailButton();
         setUpEmailPage.clickOnGoogleButton();
-        signInPage.enterEmailToEmailInput(EMAIL)
+        signInPage.enterEmailToEmailInput(email)
                 .clickOnNextButton();
-        enterPasswordPage.enterPasswordToPasswordInput(PASSWORD)
+        enterPasswordPage.enterPasswordToPasswordInput(password)
+                .clickOnNextButton();
+        return this;
+    }
+
+    public GmailBO addNewAccount(String email, String password) {
+        accountsPage.clickOnAddEmailButton();
+        setUpEmailPage.clickOnGoogleButton();
+        signInPage.enterEmailToEmailInput(email)
+                .clickOnNextButton();
+        enterPasswordPage.enterPasswordToPasswordInput(password)
                 .clickOnNextButton();
         confirmationPage.clickOnConfirmButton();
         googleServicesPage.clickOnAcceptButton();
         return this;
     }
 
-    public GmailBO sendNewLetter() {
+    public GmailBO sendNewLetter(String email) {
         accountsPage.clickOnGoToGmailButton();
         incomingLettersPage.clickOnComposeButton();
         String subject = RandomGenerators.randomStringGenerator();
         String message = RandomGenerators.randomStringGenerator();
-        composeLetterPage.enterEmailToEmailInput(EMAIL)
+        composeLetterPage.enterEmailToEmailInput(email)
                 .enterSubjectToSubjectInput(subject)
                 .enterMessageToMessageBodyInput(message)
                 .clickOnSendButton();

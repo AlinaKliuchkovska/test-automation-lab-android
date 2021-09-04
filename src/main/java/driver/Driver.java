@@ -13,7 +13,9 @@ public class Driver {
     }
 
     public static AndroidDriver getDriver() {
+        System.out.println(driver);
         if (driver == null) {
+            System.out.println("RR");
             driver = new AndroidDriver(CapabilitiesFactory.getAppiumServerUrl(), CapabilitiesFactory.getCapabilities());
             driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         }
@@ -22,5 +24,6 @@ public class Driver {
 
     public static void quitDriver() {
         driver.quit();
+        driver = null;
     }
 }

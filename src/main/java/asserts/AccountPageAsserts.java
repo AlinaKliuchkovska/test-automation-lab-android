@@ -10,5 +10,4 @@ public class AccountPageAsserts {
         Assert.assertEquals(accountsPage.getAccountName(), expectedName);
         return this;
     }
-
 }

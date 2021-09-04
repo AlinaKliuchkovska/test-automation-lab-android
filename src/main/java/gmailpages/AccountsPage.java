@@ -27,7 +27,11 @@ public class AccountsPage extends BasePage {
     }
 
     public String getAccountName() {
-        waitForVisibilityOfElement(addEmailButton);
+        waitForVisibilityOfElement(accountName);
         return accountName.getText();
+    }
+
+    public boolean isAccountDisplayed(){
+       return accountName.isDisplayed();
     }
 }
